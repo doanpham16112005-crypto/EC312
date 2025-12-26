@@ -7,8 +7,8 @@ import { Search, Menu, ShoppingCart, User, Heart, ChevronDown, LogOut } from 'lu
 import Link from 'next/link';
 // import { useAuth } from '@/context/AuthContext';
 import { useAuth } from '@/contexts/AuthContext';
-import { useCart } from '@/app/context/cart-context';
-import { useWishlist } from '@/app/context/wishlist-context';
+import { useCart } from '@/contexts/CartContext';
+import { useWishlist } from '@/contexts/WishlistContext';
 import { useRouter } from 'next/navigation';
 
 
@@ -224,8 +224,11 @@ return (
         <Link href="/contact" className="text-sm font-medium hover:text-pink-600">
           Liên Hệ
         </Link>
-        <Link href="/promotions" className="text-sm font-medium text-red-700">
+        <Link href="/promotions" className="text-sm font-medium hover:text-pink-600">
           Khuyến Mại
+        </Link>
+        <Link href="/design" className="text-sm font-medium hover:text-pink-600">
+          Thiết kế ốp lưng
         </Link>
       </nav>
     </div>

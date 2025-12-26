@@ -14,8 +14,8 @@ import {
 
 import { fetchProducts, fetchCategoriesWithCount, createMomoPayment } from '@/lib/api-client';
 import { AddToCartButton } from '@/components/products/AddToCartButton';
-import { useCart } from '@/app/context/cart-context';
-import { useWishlist } from '@/app/context/wishlist-context';
+import { useCart } from '@/contexts/CartContext';
+import { useWishlist } from '@/contexts/WishlistContext';
 import { useAuth } from '@/contexts/AuthContext';
 
 /* ===================== TYPES ===================== */

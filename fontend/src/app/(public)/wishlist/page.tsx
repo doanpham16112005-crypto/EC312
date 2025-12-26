@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Heart, Trash2, Star, ArrowLeft } from 'lucide-react';
-import { useWishlist } from '@/app/context/wishlist-context';
+import { useWishlist } from '@/contexts/WishlistContext';
 import { AddToCartButton } from '@/components/products/AddToCartButton';
 import { fetchProductById } from '@/lib/api-client';
 

@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ShoppingCart, Trash2, Plus, Minus, ArrowLeft } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
-import { useCart } from '@/app/context/cart-context';
+import { useCart } from '@/contexts/CartContext';
 import { useRouter } from 'next/navigation';
 import {
   fetchShoppingCart,

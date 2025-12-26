@@ -20,8 +20,8 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import CartModal from '@/components/modals/CartModal';
 import CurrencyModal from '@/components/modals/CurrencyModal';
-import { useWishlist } from '@/app/context/wishlist-context';
-import { useCart } from '@/app/context/cart-context';
+import { useWishlist } from '@/contexts/WishlistContext';
+import { useCart } from '@/contexts/CartContext';
 
 // Icon map for categories
 const CATEGORY_ICON_MAP: Record<string, React.ReactNode> = {
@@ -211,19 +211,6 @@ export default function HomePage() {
 
       {/* Layout */}
       <TopBanner />
-      
-      <Header
-        onCartClick={() => setIsCartOpen(true)}
-        onWishlistClick={() => router.push('/wishlist')}
-        wishlistCount={wishedProducts.size}
-        showDeviceSelector
-        devices={devices}
-        selectedDevice={selectedDevice}
-        onDeviceChange={setSelectedDevice}
-        showCurrencySelector
-        selectedCurrency={selectedCurrency}
-        onCurrencyClick={() => setIsCurrencyModalOpen(true)}
-      />
 
       {/* ═══════════════════════════════════════════════════════════════════════════
           HERO SECTION - Modern Carousel
@@ -684,9 +671,6 @@ export default function HomePage() {
           </form>
         </div>
       </section>
-
-      {/* Footer */}
-      <Footer />
     </div>
   );
 }

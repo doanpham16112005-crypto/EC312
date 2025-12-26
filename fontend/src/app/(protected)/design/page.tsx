@@ -15,7 +15,6 @@ import { Canvas as FabricCanvas, FabricImage, FabricText, Rect, Circle, IText } 
 import { useAuth } from '@/contexts/AuthContext';
 import { getPhoneTemplates, createDesign, updateDesign, submitDesign } from '@/lib/api-client';
 
-// Types
 interface PhoneTemplate {
   template_id: number;
   phone_model: string;
@@ -37,7 +36,7 @@ interface DesignState {
 
 export default function DesignPage() {
   const router = useRouter();
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated , loading: authLoading } = useAuth();
   
   // Refs
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -589,10 +588,10 @@ export default function DesignPage() {
   const handleSubmit = async () => {
     if (!fabricRef.current || !selectedTemplate) return;
     
-    // Validate guest info if not logged in
+    // Xác thực người dùng
     if (!isAuthenticated) {
       if (!guestInfo.email || !guestInfo.name || !guestInfo.phone) {
-        alert('Vui lòng nhập đầy đủ thông tin liên hệ!');
+        alert('Vui lòng đăng nhập!');
         return;
       }
     }
@@ -677,20 +676,6 @@ export default function DesignPage() {
   if (showTemplateSelector) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50">
-        {/* Header */}
-        <header className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50">
-          <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 text-gray-600 hover:text-pink-600 transition">
-              <Home className="w-5 h-5" />
-              <span>Trang chủ</span>
-            </Link>
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-pink-600 to-purple-600 bg-clip-text text-transparent">
-              🎨 Thiết Kế Ốp Điện Thoại
-            </h1>
-            <div className="w-24"></div>
-          </div>
-        </header>
-        
         <div className="max-w-6xl mx-auto px-4 py-12">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">

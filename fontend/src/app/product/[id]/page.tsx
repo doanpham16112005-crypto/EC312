@@ -12,8 +12,8 @@ import { fetchProductById, addToShoppingCart, fetchCompatiblePhoneModels, fetchA
 import TopBanner from '@/components/layout/TopBanner';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { useWishlist } from '@/app/context/wishlist-context';
-import { useCart } from '@/app/context/cart-context';
+import { useWishlist } from '@/contexts/WishlistContext';
+import { useCart } from '@/contexts/CartContext';
 
 interface PhoneModel {
   model_id: number;
